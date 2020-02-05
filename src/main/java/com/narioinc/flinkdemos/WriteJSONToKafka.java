@@ -18,19 +18,14 @@
 
 package com.narioinc.flinkdemos;
 
-import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.functions.source.SourceFunction;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer011;
-
-import com.narioinc.flinkdemos.utils.SimpleStringGenerator;
+import java.util.Properties;
 
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;
 
-import java.time.Instant;
-import java.util.Properties;
-import java.util.Random;
+import com.narioinc.flinkdemos.utils.SimpleStringGenerator;
 
 public class WriteJSONToKafka {
 

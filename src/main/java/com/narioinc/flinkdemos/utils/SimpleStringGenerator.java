@@ -4,7 +4,6 @@ import java.time.Instant;
 import java.util.Random;
 
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
-import org.apache.flink.streaming.api.functions.source.SourceFunction.SourceContext;
 
 /**
  * Simple Class to generate data
