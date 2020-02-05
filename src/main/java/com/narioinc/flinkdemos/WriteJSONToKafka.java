@@ -23,7 +23,12 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer011;
+
+import com.narioinc.flinkdemos.utils.SimpleStringGenerator;
+
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
+
+import java.time.Instant;
 import java.util.Properties;
 import java.util.Random;
 
@@ -45,27 +50,5 @@ public class WriteJSONToKafka {
 
     env.execute();
   }
-
-  /**
-   * Simple Class to generate data
-   */
-  public static class SimpleStringGenerator implements SourceFunction<String> {
-    private static final long serialVersionUID = 119007289730474249L;
-    boolean running = true;
-    long i = 0;
-    @Override
-    public void run(SourceContext<String> ctx) throws Exception {
-      while(running) {
-        ctx.collect("{\"temp\":\""+Integer.toString(new Random().nextInt(90) + 10)+"\"}");
-        //System.out.println("{\"temp\":\""+Integer.toString(new Random().nextInt(90) + 10)+"\"}");
-        Thread.sleep(10);
-      }
-    }
-    @Override
-    public void cancel() {
-      running = false;
-    }
-  }
-
 
 }
